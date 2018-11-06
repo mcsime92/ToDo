@@ -28,6 +28,8 @@ def enter_new_entry():
                    (input_task_name, input_task_category, input_task_deadline, input_task_status))
     connection.commit()
 
+def print_test():
+    print('test')
 
 def delete_table():
     sql_command = 'DELETE FROM todolist;'
@@ -49,6 +51,5 @@ def print_db():
 
 
 database_creation()
-enter_new_entry()
-print_db()
+#enter_new_entry()
 cursor.close()
