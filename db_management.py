@@ -1,6 +1,5 @@
-# TO DO program. Task, deadline, category, status
-# Add GUI and format to make a package
 import sqlite3
+
 
 database_name = 'todo_list.db'
 connection = sqlite3.connect(database_name)
@@ -18,9 +17,9 @@ def database_creation():
 
 
 def enter_new_entry():
-    input_task_name = input('> Task name ')
-    input_task_category = input('> Task category ')
-    input_task_deadline = input('> Task deadline, if any (DD/MM/YYYY) ')
+    input_task_name = 'name'
+    input_task_category = 'catg'
+    input_task_deadline = '01/01/01'
     input_task_status = "Not started"
 
     sql_command = 'INSERT INTO todolist VALUES (NULL, ?, ?, ?, ?);'
@@ -28,8 +27,6 @@ def enter_new_entry():
                    (input_task_name, input_task_category, input_task_deadline, input_task_status))
     connection.commit()
 
-def print_test():
-    print('test')
 
 def delete_table():
     sql_command = 'DELETE FROM todolist;'
@@ -43,6 +40,7 @@ def drop_table():
     connection.commit()
 
 
+# For testing
 def print_db():
     cursor.execute('SELECT * FROM todolist')
     ans = cursor.fetchall()
@@ -51,5 +49,8 @@ def print_db():
 
 
 database_creation()
-#enter_new_entry()
+
+# For testing
+# enter_new_entry()
+
 cursor.close()
